@@ -1,5 +1,6 @@
 import { Gallery } from "@/components/Gallery";
 import Header from "@/components/Header";
+import { SamosaVideoSection } from "@/components/samosa-video-section";
 import { SocialFeed } from "@/components/SocialFeed";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -136,6 +137,24 @@ export default function Home() {
                 price: "$3.75",
                 src: "/menu/Adrak Chai.jpeg",
               },
+              {
+                name: "Shahi Samosa",
+                description: "Authentic samosas made with a blend of spices.",
+                price: "$1.50",
+                src: "/menu/Shahi Samosa.jpg",
+              },
+              {
+                name: "Shahi Paneer Samosa",
+                description: "Authentic samosas filled with creamy paneer.",
+                price: "$2.00",
+                src: "/menu/Shahi Paneer Samosa.webp",
+              },
+              {
+                name: "Egg and Chicken Puffs",
+                description: "Crunchy and flavorful egg and chicken puffs.",
+                price: "$1.75",
+                src: "/menu/egg and chicken puff.jpg",
+              },
             ].map((item, i) => (
               <div key={i} className="bg-dark/80 backdrop-blur-sm rounded-lg overflow-hidden group">
                 <div className="relative h-56">
@@ -151,6 +170,22 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Samosa Video Section */}
+      <section id="samosa-video" className="py-16 bg-brand/10 hidden">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className={`${playfair.className} text-brand text-4xl font-bold mb-8`}>Samosa Making Process</h2>
+          <p className="text-lg text-gray-300 mb-8">Watch our team in action as they prepare the crispy and flavorful samosas that pair perfectly with our chai selection.</p>
+
+          {/* Video Container */}
+          <div className="relative w-full max-w-xl mx-auto mb-8">
+            <video src="/samosa.MOV" autoPlay loop muted playsInline className="w-full h-auto rounded-lg" />
+          </div>
+
+          <p className="text-lg text-gray-300">Our samosas are made with fresh ingredients and traditional techniques, ensuring every bite is crispy and delicious.</p>
+        </div>
+      </section>
+      <SamosaVideoSection />
 
       {/* Horizontal Gallery */}
       <Gallery />
