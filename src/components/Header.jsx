@@ -28,7 +28,7 @@ export default function Header() {
     <header className="bg-dark/60 sticky top-0 z-50 backdrop-blur-sm transition-colors duration-300">
       <div className="container mx-auto flex justify-between items-center py-2">
         <div className="w-48 h-16 relative">
-          <Image src="/Desi Chaiwaala Logo Design.svg" alt="Desi Chaiwaala Company Logo" fill className="object-contain" priority />
+          <Image src="/Circle Desi Chaiwaala Logo Design.jpeg" alt="Desi Chaiwaala Company Logo" fill className="object-contain" priority />
         </div>
         <div className="flex items-center space-x-4">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -40,7 +40,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="bg-white dark:bg-dark/95 backdrop-blur-sm w-64 sm:w-80">
               <SheetTitle className="text-2xl font-bold mb-4">
-                <Image src="/Desi Chaiwaala Logo Design.svg" alt="Desi Chaiwaala Company Logo" width={100} height={100} className="object-contain" />
+                <Image src="/Circle Desi Chaiwaala Logo Design.jpeg" alt="Desi Chaiwaala Company Logo" width={100} height={100} className="object-contain" />
                 <span className="text-brand">Desi Chaiwaala</span>
               </SheetTitle>
               <nav className="flex flex-col gap-4">

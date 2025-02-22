@@ -16,6 +16,12 @@ const galleryItems = [
   { src: "/gallery/Shahi Samosa1.webp", alt: "Shahi Samosa", title: "Shahi Samosa" },
   { src: "/gallery/Shahi Samosa2.jpg", alt: "Shahi Samosa", title: "Shahi Samosa" },
   { src: "/gallery/Shahi Samosa3.jpg", alt: "Shahi Samosa", title: "Shahi Samosa" },
+  { src: "/gallery/samosa-2.jpeg", alt: " Chai", title: "Chai & Bisque" },
+  { src: "/gallery/samosa-4.jpeg", alt: " Chai", title: "Chai & Bisque" },
+  { src: "/gallery/samosa-5.jpeg", alt: " Chai", title: "Chai & Bisque" },
+  { src: "/gallery/samosa-6.jpeg", alt: " Chai", title: "Chai & Bisque" },
+  { src: "/gallery/Shahi samosa.png", alt: " Samosa", title: "Samosa" },
+  { src: "/gallery/samosa.jpg", alt: " Samosa", title: "Samosa" },
 ];
 
 export function Gallery() {

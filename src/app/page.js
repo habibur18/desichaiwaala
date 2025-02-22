@@ -283,7 +283,7 @@ export default function Home() {
       <footer className="bg-dark py-6 border-t border-brand/20">
         <div className="container mx-auto text-center px-4">
           <div className=" relative mx-auto mb-4">
-            <Image src="/Desi Chaiwaala Logo Design.svg" alt="Desi Chaiwaala Company Logo" width={300} height={300} className="object-contain mx-auto" />
+            <Image src="/Circle Desi Chaiwaala Logo Design.jpeg" alt="Desi Chaiwaala Company Logo" width={300} height={300} className="object-contain mx-auto" />
           </div>
           <p className="text-gray-400">&copy; {new Date().getFullYear()} Desi Chaiwaala Company. All rights reserved.</p>
         </div>
