@@ -61,7 +61,7 @@ export function SocialFeed() {
     <section className="py-16 dark:bg-dark/90">
       <div className="container mx-auto px-4 mb-12">
         <h2 className={`${playfair.className} text-4xl md:text-5xl font-bold text-center mb-4`}>
-          FOLLOW US <span className="text-brand">@DESICHAIWAALA</span>
+          <span className="text-white">FOLLOW US</span> <span className="text-brand">@DESICHAIWAALA</span>
         </h2>
         <p className="text-center text-muted-foreground mb-8">Join our community and share your chai moments</p>
       </div>

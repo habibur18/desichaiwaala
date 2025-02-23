@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, PhoneCall } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Header() {
@@ -26,9 +27,11 @@ export default function Header() {
 
   return (
     <header className="bg-dark/60 sticky top-0 z-50 backdrop-blur-sm transition-colors duration-300">
-      <div className="container mx-auto flex justify-between items-center py-2">
-        <div className="w-48 h-16 relative">
-          <Image src="/Circle Desi Chaiwaala Logo Design.jpeg" alt="Desi Chaiwaala Company Logo" fill className="object-contain" priority />
+      <div className="container mx-auto flex justify-between items-center py-2 px-4 ">
+        <div className=" relative">
+          <Link href="/">
+            <Image src="/Circle Desi Chaiwaala Logo Design.jpeg" alt="Desi Chaiwaala Company Logo" width={160} height={160} className="object-contain" priority />
+          </Link>
         </div>
         <div className="flex items-center space-x-4">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -40,8 +43,10 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="bg-white dark:bg-dark/95 backdrop-blur-sm w-64 sm:w-80">
               <SheetTitle className="text-2xl font-bold mb-4">
-                <Image src="/Circle Desi Chaiwaala Logo Design.jpeg" alt="Desi Chaiwaala Company Logo" width={100} height={100} className="object-contain" />
-                <span className="text-brand">Desi Chaiwaala</span>
+                <Link href="/">
+                  <Image src="/Circle Desi Chaiwaala Logo Design.jpeg" alt="Desi Chaiwaala Company Logo" width={200} height={200} className="object-contain" />
+                  <span className="text-brand">Desi Chaiwaala</span>
+                </Link>
               </SheetTitle>
               <nav className="flex flex-col gap-4">
                 <a href="#about" className="text-xl hover:text-brand transition-colors text-white" onClick={handleLinkClick}>
@@ -50,9 +55,9 @@ export default function Header() {
                 <a href="#gallery" className="text-xl hover:text-brand transition-colors text-white" onClick={handleLinkClick}>
                   Gallery
                 </a>
-                <a href="#menu" className="text-xl hover:text-brand transition-colors text-white" onClick={handleLinkClick}>
+                <Link href="/menu" className="text-xl hover:text-brand transition-colors text-white" onClick={handleLinkClick}>
                   Menu
-                </a>
+                </Link>
                 <a href="#contact" className="text-xl hover:text-brand transition-colors text-white" onClick={handleLinkClick}>
                   Contact
                 </a>
@@ -69,7 +74,7 @@ export default function Header() {
           </Sheet>
         </div>
         <nav className="hidden lg:block">
-          <ul className="flex space-x-8">
+          <ul className="flex space-x-8 text-xl">
             <li>
               <a href="#about" className="hover:text-brand transition-colors">
                 About
@@ -81,9 +86,9 @@ export default function Header() {
               </a>
             </li>
             <li>
-              <a href="#menu" className="hover:text-brand transition-colors">
+              <Link href="/menu" className="hover:text-brand transition-colors">
                 Menu
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#contact" className="hover:text-brand transition-colors">
