@@ -42,8 +42,11 @@ export default function page() {
       <VideoShowcase />
 
       {/* Menu Section */}
-      <section id="chai-menu" className="py-16 bg-brand/10">
-        <div className="container mx-auto px-4">
+      <section id="chai-menu" className="relative py-24 bg-brand/10">
+        <div className="absolute inset-0 hidden">
+          <Image src="/bg.png" alt="Background" width={1920} height={100} className="object-cover w-full" />
+        </div>
+        <div className="container mx-auto px-4 relative z-[999]">
           <h2 className={`${playfair.className} text-brand text-4xl font-bold mb-12 text-center`}>Chai Menu</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {[
