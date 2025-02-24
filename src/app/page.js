@@ -29,7 +29,7 @@ export default function Home() {
             <h1 className={`${playfair.className} text-4xl md:text-6xl font-bold mb-6`}>
               Experience the Magic of
               <br />
-              <span className="text-brand">Authentic Irani Chai</span>
+              <span className="text-brand">Authentic Hyderabadi Irani Chai</span>
             </h1>
             <a href="#menu" className="inline-block bg-brand text-dark px-8 py-4 rounded-full font-semibold hover:bg-opacity-90 transition-colors">
               Explore Our Menu
