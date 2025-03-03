@@ -8,7 +8,8 @@ import Link from "next/link";
 const playfair = Playfair_Display({ subsets: ["latin"] });
 export default async function page() {
   // no store and no cache
-  const res = await fetch("http://desichaiwaala.ca/api/menu", { cache: "no-store" });
+  //
+  const res = await fetch("http://desichaiwaala.ca/api/menu ", { cache: "no-store" });
   const menuItems = await res.json();
   const somosaItems = menuItems.filter((item) => item.menuType === "Samosa");
   const chaiItems = menuItems.filter((item) => item.menuType === "Chai");
@@ -57,7 +58,7 @@ export default async function page() {
             {chaiItems.map((item, i) => (
               <div key={item._id} className="bg-dark/80 backdrop-blur-sm rounded-lg overflow-hidden group">
                 <div className="relative h-56">
-                  <Image src={item.image} alt={item.name} fill className="object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <Image src={item.image} alt={item.title} fill className="object-cover transition-transform duration-300 group-hover:scale-110" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2 text-brand">{item.title}</h3>
@@ -74,32 +75,13 @@ export default async function page() {
         <div className="container mx-auto px-4">
           <h2 className={`${playfair.className} text-brand text-4xl font-bold mb-12 text-center`}>Samosa Menu</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {[
-              {
-                name: "Shahi Samosa",
-                description: "Authentic samosas made with a blend of spices.",
-                price: "$1.50",
-                src: "/menu/Shahi Samosa.jpg",
-              },
-              {
-                name: "Shahi Paneer Samosa",
-                description: "Authentic samosas filled with creamy paneer.",
-                price: "$2.00",
-                src: "/menu/Shahi Paneer Samosa.webp",
-              },
-              {
-                name: "Egg and Chicken Puffs",
-                description: "Crunchy and flavorful egg and chicken puffs.",
-                price: "$1.75",
-                src: "/menu/egg and chicken puff.jpg",
-              },
-            ].map((item, i) => (
-              <div key={i} className="bg-dark/80 backdrop-blur-sm rounded-lg overflow-hidden group">
+            {somosaItems.map((item, i) => (
+              <div key={item._id} className="bg-dark/80 backdrop-blur-sm rounded-lg overflow-hidden group">
                 <div className="relative h-56">
-                  <Image src={item.src} alt={item.name} fill className="object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <Image src={item.image} alt={item.title} fill className="object-cover transition-transform duration-300 group-hover:scale-110" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-brand">{item.name}</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-brand">{item.title}</h3>
                   <p className="text-gray-300 mb-4">{item.description}</p>
                   <p className="text-brand font-bold text-lg">{item.price}</p>
                 </div>

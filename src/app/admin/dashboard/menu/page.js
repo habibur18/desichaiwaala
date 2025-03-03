@@ -12,7 +12,7 @@ export default function MenuManagement() {
     price: "",
     image: null,
     id: null,
-    menuType: null,
+    menuType: "",
   });
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
@@ -128,6 +128,7 @@ export default function MenuManagement() {
       await fetchMenuItems();
       resetForm();
       showSuccessMessage(formData.id ? "Menu item updated successfully" : "Menu item added successfully");
+      window.location.reload();
     } catch (err) {
       setError(err.message || "An error occurred");
     } finally {
