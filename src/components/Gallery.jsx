@@ -5,23 +5,23 @@ const playfair = Playfair_Display({ subsets: ["latin"] });
 
 const galleryItems = [
   { src: "/gallery/Classic Irani Chai.webp", alt: "Classic Irani Chai", title: "Classic Irani Chai" },
-  { src: "/gallery/Saffron Infused Chai.avif", alt: "Saffron Infused Chai", title: "Saffron Infused Chai" },
+  // { src: "/gallery/Saffron Infused Chai.avif", alt: "Saffron Infused Chai", title: "Saffron Infused Chai" },
   { src: "/gallery/Masala Chai.jpg", alt: "Masala Chai", title: "Masala Chai" },
-  { src: "/gallery/Rose Petal Chai.jpg", alt: "Rose Petal Chai", title: "Rose Petal Chai" },
+  // { src: "/gallery/Rose Petal Chai.jpg", alt: "Rose Petal Chai", title: "Rose Petal Chai" },
   { src: "/gallery/Cardamom Special.jpg", alt: "Cardamom Special", title: "Cardamom Special" },
-  { src: "/gallery/Ginger Chai.jpg", alt: "Ginger Chai", title: "Ginger Chai" },
-  { src: "/gallery/Egg-Chicken-Puff.jpg", alt: "Egg-Chicken-Puff", title: "Egg Chicken Puff" },
+  // { src: "/gallery/Ginger Chai.jpg", alt: "Ginger Chai", title: "Ginger Chai" },
+  // { src: "/gallery/Egg-Chicken-Puff.jpg", alt: "Egg-Chicken-Puff", title: "Egg Chicken Puff" },
   { src: "/gallery/kerala-egg-puffs-recipe.jpg", alt: "Kerla Egg Puffs", title: "Kerla Egg Puffs" },
   { src: "/gallery/Shahi Samosa.webp", alt: "Shahi Samosa", title: "Shahi Samosa" },
-  { src: "/gallery/Shahi Samosa1.webp", alt: "Shahi Samosa", title: "Shahi Samosa" },
-  { src: "/gallery/Shahi Samosa2.jpg", alt: "Shahi Samosa", title: "Shahi Samosa" },
-  { src: "/gallery/Shahi Samosa3.jpg", alt: "Shahi Samosa", title: "Shahi Samosa" },
+  // { src: "/gallery/Shahi Samosa1.webp", alt: "Shahi Samosa", title: "Shahi Samosa" },
+  // { src: "/gallery/Shahi Samosa2.jpg", alt: "Shahi Samosa", title: "Shahi Samosa" },
+  { src: "/gallery/Shahi Samosa3.jpg", alt: "Shahi Samosa", title: "Egg Puff" },
   { src: "/gallery/samosa-2.jpeg", alt: " Chai", title: "Chai & Bisque" },
   { src: "/gallery/samosa-4.jpeg", alt: " Chai", title: "Chai & Bisque" },
   { src: "/gallery/samosa-5.jpeg", alt: " Chai", title: "Chai & Bisque" },
-  { src: "/gallery/samosa-6.jpeg", alt: " Chai", title: "Chai & Bisque" },
-  { src: "/gallery/Shahi samosa.png", alt: " Samosa", title: "Samosa" },
-  { src: "/gallery/samosa.jpg", alt: " Samosa", title: "Samosa" },
+  // { src: "/gallery/samosa-6.jpeg", alt: " Chai", title: "Chai & Bisque" },
+  // { src: "/gallery/Shahi samosa.png", alt: " Samosa", title: "Samosa" },
+  // { src: "/gallery/samosa.jpg", alt: " Samosa", title: "Samosa" },
 ];
 
 export function Gallery() {

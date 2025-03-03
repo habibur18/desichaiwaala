@@ -102,6 +102,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Bulk Orders Section */}
+      <section id="bulk-orders" className="py-20  relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Image/Visual Representation */}
+            <div className="relative h-[400px] max-w-[600px] rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+              <div className="relative w-full h-full">
+                <Image src="/event.webp" width={600} height={400} alt="Event with chai" className="object-cover w-full h-full" />
+              </div>
+            </div>
+            {/* Text and description */}
+            <div className="space-y-6">
+              <h2 className={`${playfair.className} text-brand text-4xl font-bold mb-8`}>Bulk Orders for Events</h2>
+              <p className="text-lg leading-relaxed">Planning an event? Let us take care of your chai and snacks! From birthdays to corporate events, we offer bulk orders tailored to your needs, ensuring a delicious experience that everyone will enjoy.</p>
+              <p className="text-lg leading-relaxed">Whether it’s a small gathering or a large celebration, our team will help you plan the perfect menu for your special occasion.</p>
+              <a href="tel:1234567890" className="inline-block bg-brand text-dark px-8 py-4 rounded-full font-semibold hover:bg-opacity-90 transition-colors">
+                <span className="flex items-center">
+                  Call Now
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-light via-transparent to-light opacity-50"></div>
+      </section>
+
       {/* Menu Section */}
       <section id="menu" className="py-16 bg-brand/10">
         <div className="container mx-auto px-4">
