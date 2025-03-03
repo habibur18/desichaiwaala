@@ -8,7 +8,7 @@ import Link from "next/link";
 const playfair = Playfair_Display({ subsets: ["latin"] });
 export default async function page() {
   // no store and no cache
-  const res = await fetch("http://localhost:3000/api/menu", { cache: "no-store" });
+  const res = await fetch("http://desichaiwaala.ca/api/menu", { cache: "no-store" });
   const menuItems = await res.json();
   const somosaItems = menuItems.filter((item) => item.menuType === "Samosa");
   const chaiItems = menuItems.filter((item) => item.menuType === "Chai");
