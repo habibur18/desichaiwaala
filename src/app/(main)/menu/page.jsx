@@ -35,7 +35,7 @@ export default async function page() {
             <div className="absolute inset-0 bg-black/60 transition-opacity group-hover:opacity-70 rounded-2xl" />
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
               <div className="text-brand mb-2">CRISPY & DELICIOUS</div>
-              <h1 className={`${playfair.className} text-4xl md:text-5xl font-bold mb-4 text-center`}>SAMOSA MENU</h1>
+              <h1 className={`${playfair.className} text-4xl md:text-5xl font-bold mb-4 text-center`}>SAMOSA & PUFF MENU</h1>
               <Button variant="outline" className="bg-brand hover:bg-brand/80 text-black px-8 py-6 rounded-full text-lg font-semibold">
                 Explore Samosas
                 <ChevronRight className="ml-2 h-4 w-4" />
@@ -73,7 +73,7 @@ export default async function page() {
       {/* Menu Section of Samosa*/}
       <section id="samosa-menu" className="py-16 bg-dark/90">
         <div className="container mx-auto px-4">
-          <h2 className={`${playfair.className} text-brand text-4xl font-bold mb-12 text-center`}>Samosa Menu</h2>
+          <h2 className={`${playfair.className} text-brand text-4xl font-bold mb-12 text-center`}>SAMOSA & PUFF MENU</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {somosaItems.map((item, i) => (
               <div key={item._id} className="bg-dark/80 backdrop-blur-sm rounded-lg overflow-hidden group">
