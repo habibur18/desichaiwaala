@@ -1,72 +1,49 @@
 import { MenuModel } from "@/models/menu-model";
-import { existsSync } from "fs";
-import { mkdir, unlink, writeFile } from "fs/promises";
+import { del, put } from "@vercel/blob";
 import { NextResponse } from "next/server";
-import { extname, join } from "path";
 import connectMongo from "../../../../db/connectMongo";
 
-// Ensure upload directory exists
-async function ensureUploadDir() {
-  const uploadDir = join(process.cwd(), "public", "uploads", "menu");
-  if (!existsSync(uploadDir)) {
-    await mkdir(uploadDir, { recursive: true });
-  }
-  return uploadDir;
-}
+// Upload file to Vercel Blob
+async function uploadToBlob(file, oldImageUrl = null) {
+  try {
+    // Get original filename and create a unique filename
+    const originalFilename = file.name;
+    const fileExt = originalFilename.split(".").pop();
+    const filenameWithoutExt = originalFilename.replace(`.${fileExt}`, "");
 
-// Save uploaded file
-async function saveFile(file, oldImagePath = null) {
-  const uploadDir = await ensureUploadDir();
-  const bytes = await file.arrayBuffer();
-  const buffer = Buffer.from(bytes);
+    // Create sanitized filename (remove special characters)
+    const sanitizedFilename = filenameWithoutExt.replace(/[^a-zA-Z0-9]/g, "-").toLowerCase();
 
-  // Get original filename and extension
-  const originalFilename = file.name;
-  const fileExt = extname(originalFilename);
-  const filenameWithoutExt = originalFilename.replace(fileExt, "");
+    // Create unique filename with timestamp
+    const uniqueFilename = `menu/${sanitizedFilename}-${Date.now()}.${fileExt}`;
 
-  // Create sanitized filename (remove special characters)
-  const sanitizedFilename = filenameWithoutExt.replace(/[^a-zA-Z0-9]/g, "-").toLowerCase();
+    // Upload to Vercel Blob
+    const blob = await put(uniqueFilename, file, {
+      access: "public",
+    });
 
-  // Check if file already exists
-  let finalFilename = `${sanitizedFilename}${fileExt}`;
-  let filepath = join(uploadDir, finalFilename);
-
-  // If file exists, add timestamp to make it unique
-  if (existsSync(filepath)) {
-    finalFilename = `${sanitizedFilename}-${Date.now()}${fileExt}`;
-    filepath = join(uploadDir, finalFilename);
-  }
-
-  // Write the file
-  await writeFile(filepath, buffer);
-
-  // If updating an image, delete the old one
-  if (oldImagePath) {
-    try {
-      // Extract filename from path (e.g., /uploads/menu/image.jpg -> image.jpg)
-      const oldFilename = oldImagePath.split("/").pop();
-      const oldFilepath = join(uploadDir, oldFilename);
-
-      // Check if file exists before attempting to delete
-      if (existsSync(oldFilepath)) {
-        await unlink(oldFilepath);
-        console.log(`Deleted old image: ${oldFilepath}`);
+    // If updating an image, delete the old one
+    if (oldImageUrl) {
+      try {
+        await del(oldImageUrl);
+        console.log(`Deleted old image: ${oldImageUrl}`);
+      } catch (error) {
+        console.error("Error deleting old image:", error);
+        // Continue even if delete fails
       }
-    } catch (error) {
-      console.error("Error deleting old image:", error);
-      // Continue even if delete fails
     }
-  }
 
-  return `/uploads/menu/${finalFilename}`;
+    return blob.url;
+  } catch (error) {
+    console.error("Error uploading to blob:", error);
+    throw new Error("Failed to upload image");
+  }
 }
 
 // GET: Fetch all menu items
 export async function GET() {
   try {
     await connectMongo();
-    // const menuItems = await MenuModel.find().sort({ _id: -1 });
     const menuItems = await MenuModel.find();
     return NextResponse.json(menuItems);
   } catch (error) {
@@ -88,15 +65,16 @@ export async function POST(request) {
     const menuType = formData.get("menuType");
 
     console.log(menuType);
+
     // Validate required fields
     if (!title || !description || !price || !menuType) {
-      return NextResponse.json({ error: "Title, description, and price are required" }, { status: 400 });
+      return NextResponse.json({ error: "Title, description, price, and menu type are required" }, { status: 400 });
     }
 
     // Handle image upload
-    let imagePath = null;
+    let imageUrl = null;
     if (imageFile && imageFile.size > 0) {
-      imagePath = await saveFile(imageFile);
+      imageUrl = await uploadToBlob(imageFile);
     } else {
       return NextResponse.json({ error: "Image is required" }, { status: 400 });
     }
@@ -106,7 +84,7 @@ export async function POST(request) {
       title,
       description,
       price: Number.parseFloat(price),
-      image: imagePath,
+      image: imageUrl,
       menuType,
     });
 
@@ -132,11 +110,12 @@ export async function PATCH(request) {
     const menuType = formData.get("menuType");
 
     console.log(menuType, "menuType");
+
     if (!id) {
       return NextResponse.json({ error: "ID is required" }, { status: 400 });
     }
 
-    // Find the existing menu item to get the old image path
+    // Find the existing menu item to get the old image URL
     const existingMenuItem = await MenuModel.findById(id);
     if (!existingMenuItem) {
       return NextResponse.json({ error: "Menu item not found" }, { status: 404 });
@@ -152,8 +131,8 @@ export async function PATCH(request) {
 
     // Handle image upload if a new image is provided
     if (imageFile && imageFile.size > 0) {
-      // Pass the old image path to saveFile for deletion
-      updateData.image = await saveFile(imageFile, existingMenuItem.image);
+      // Pass the old image URL to uploadToBlob for deletion
+      updateData.image = await uploadToBlob(imageFile, existingMenuItem.image);
     }
 
     const updatedMenuItem = await MenuModel.findByIdAndUpdate(id, updateData, { new: true });
@@ -177,26 +156,20 @@ export async function DELETE(request) {
       return NextResponse.json({ error: "ID is required" }, { status: 400 });
     }
 
-    // Find the menu item to get the image path before deleting
+    // Find the menu item to get the image URL before deleting
     const menuItem = await MenuModel.findById(id);
 
     if (!menuItem) {
       return NextResponse.json({ error: "Menu item not found" }, { status: 404 });
     }
 
-    // Delete the image file if it exists
+    // Delete the image from Vercel Blob if it exists
     if (menuItem.image) {
       try {
-        const uploadDir = await ensureUploadDir();
-        const filename = menuItem.image.split("/").pop();
-        const filepath = join(uploadDir, filename);
-
-        if (existsSync(filepath)) {
-          await unlink(filepath);
-          console.log(`Deleted image: ${filepath}`);
-        }
+        await del(menuItem.image);
+        console.log(`Deleted image: ${menuItem.image}`);
       } catch (error) {
-        console.error("Error deleting image file:", error);
+        console.error("Error deleting image from blob:", error);
         // Continue with deletion even if file removal fails
       }
     }

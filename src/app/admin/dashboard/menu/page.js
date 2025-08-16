@@ -39,7 +39,7 @@ export default function MenuManagement() {
 
   useEffect(() => {
     fetchMenuItems();
-  }, []); //Fixed: Added empty dependency array to useEffect
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -58,8 +58,7 @@ export default async function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className={`${playfair.className} text-brand text-4xl font-bold mb-8`}>Our Story</h2>
-              <p className="text-lg leading-relaxed">Since 1974, Desi Chaiwaala has been brewing more than just chai; we&apos;ve been crafting experiences. Our journey began in a small corner of bustling Mumbai, where our founder&apos;s passion for authentic Irani chai sparked a revolution in every cup.</p>
-              <p className="text-lg leading-relaxed">Today, we bring that same dedication to every sip, blending time-honored traditions with modern flair. Our chai isn&apos;t just just a beverage; it&apos;s a celebration of culture, community, and the art of taking a moment to savor life&apos;s simple pleasures.</p>
+              <p className="text-lg leading-relaxed">From the streets of Hyderabad to the heart of Toronto, Desi Chaiwaala brings you the authentic taste of Irani chai, crispy samosas, and flaky puffs. Inspired by the charm of Charminar and the warmth of Indian tea culture, we’re here to serve comfort in every sip and crunch in every bite. Whether you stop by after namaz or for a friendly chat, you’ll always find a little piece of home here.</p>
               <Button className="bg-brand text-dark hover:bg-brand/90 mt-4">
                 Learn More About Us
                 <ChevronRight className="ml-2 h-4 w-4" />
@@ -78,7 +77,7 @@ export default async function Home() {
       {/* What's in Our Chai? Section */}
       <section className="py-20 bg-brand/10">
         <div className="container mx-auto px-4">
-          <h2 className={`${playfair.className} text-brand text-4xl font-bold mb-12 text-center`}>What&apos;s in Our Chai? What&apos;s in Our Chai?</h2>
+          <h2 className={`${playfair.className} text-brand text-4xl font-bold mb-12 text-center`}>What&apos;s in Our Chai?</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { icon: Leaf, title: "Premium Tea Leaves", description: "Hand-picked Assam leaves for robust flavor" },
@@ -111,7 +110,7 @@ export default async function Home() {
             {/* Image/Visual Representation */}
             <div className="relative h-[400px] max-w-[600px] rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
               <div className="relative w-full h-full">
-                <Image src="/event.webp" width={600} height={400} alt="Event with chai" className="object-cover w-full h-full" />
+                <Image src="/Cardamom-Latte-scaled.webp" width={600} height={400} alt="Event with chai" className="object-cover w-full h-full" />
               </div>
             </div>
             {/* Text and description */}
@@ -220,7 +219,7 @@ export default async function Home() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-6 w-6 text-brand" />
-                  <p>(123) 456-7890</p>
+                  <p>+1 647-621-3213</p>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-6 w-6 text-brand" />
