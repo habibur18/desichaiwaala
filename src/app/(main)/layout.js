@@ -1,5 +1,5 @@
 import { SocialFeed } from "@/components/SocialFeed";
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 import { Playfair_Display } from "next/font/google";
 import Image from "next/image";
 import connectMongo from "../../../db/connectMongo";
@@ -41,7 +41,7 @@ export default async function RootLayout({ children }) {
                 {[
                   { icon: Facebook, link: "#", label: "Facebook" },
                   { icon: Instagram, link: "#", label: "Instagram" },
-                  { icon: Twitter, link: "#", label: "Twitter" },
+                  // { icon: Twitter, link: "#", label: "Twitter" },
                   { icon: Youtube, link: "#", label: "YouTube" },
                 ].map((social, i) => (
                   <a key={i} href={social.link} className="group relative p-4 hover:animate-social-bounce" aria-label={social.label}>
@@ -53,18 +53,30 @@ export default async function RootLayout({ children }) {
             </div>
           </section>
           {/* Footer */}
-          <footer className="bg-dark py-6 border-t border-brand/20">
-            <div className="container mx-auto text-center px-4">
-              <div className=" relative mx-auto mb-4">
-                <Image src="/Circle Desi Chaiwaala Logo Design.jpeg" alt="Desi Chaiwaala Company Logo" width={300} height={300} className="object-contain mx-auto" />
-              </div>
-              <p className="text-gray-400">&copy; {new Date().getFullYear()} Desi Chaiwaala Company. All rights reserved.</p>
+         {/* Footer */}
+        <footer className="bg-dark py-6 border-t border-brand/20">
+          <div className="container mx-auto text-center px-4">
+            <div className="relative mx-auto mb-4">
+              <Image
+                src="/Circle Desi Chaiwaala Logo Design.jpeg"
+                alt="Desi Chaiwaala Company Logo"
+                width={300}
+                height={300}
+                className="object-contain mx-auto"
+              />
             </div>
-          </footer>
-          {/* End of Footer */}
-          <div>
+            <p className="text-gray-400 text-xl">&copy; 2025 Desi Chaiwaala Company. All rights reserved.</p>
+                      {/* End of Footer */}
+          {/* <div>
             <Image src="/payments.png" width={500} height={100} alt="Payment Options" className="mx-auto pb-10" />
+          </div> */}
+            <p className="text-gray-500 text-lg mt-2">
+              Website made by <a href="https://paipixel.com/" className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">PaiPixel</a>
+            </p>
           </div>
+        </footer>
+
+
         </div>
       </body>
     </html>

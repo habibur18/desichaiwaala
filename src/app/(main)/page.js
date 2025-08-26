@@ -28,7 +28,7 @@ export default async function Home() {
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="text-center px-4">
-            <h1 className={`${playfair.className} text-4xl md:text-6xl font-bold mb-6`}>
+            <h1 className={` text-4xl md:text-6xl font-bold mb-6`}>
               Experience the Magic of
               <br />
               <span className="text-brand">Authentic Hyderabadi Irani Chai</span>
