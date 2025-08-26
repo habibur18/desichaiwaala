@@ -2,6 +2,7 @@
 
 import { Edit, ImageIcon, Loader2, LogOut, Save, Trash2, X } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 export default function MenuManagement() {
@@ -21,6 +22,8 @@ export default function MenuManagement() {
   const [imagePreview, setImagePreview] = useState(null);
   const fileInputRef = useRef(null);
   const formRef = useRef(null);
+  // router
+const router = useRouter();
 
   // Fetch menu items on load
   const fetchMenuItems = async () => {
@@ -191,9 +194,10 @@ export default function MenuManagement() {
         headers: {
           "Content-Type": "application/json",
         },
+         credentials: "include",
       });
       if (res.ok) {
-        router.push("/admin/login");
+         router.push("/admin/login");
       } else {
         throw new Error("Logout failed");
       }
