@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import { SamosaVideoSection } from "@/components/samosa-video-section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronRight, Clock, Coffee, Droplet, Flame, Leaf, Mail, MapPin, Music, Phone, Wifi } from "lucide-react";
+import { ChevronRight, Clock, Coffee, Droplet, Flame, Leaf, Mail, Music, Phone, Wifi } from "lucide-react";
 import { Playfair_Display } from "next/font/google";
 import Image from "next/image";
 
@@ -192,44 +192,30 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="py-20 bg-dark">
-        <div className="container mx-auto px-4">
-          <h2 className={`${playfair.className} text-brand text-4xl font-bold mb-12 text-center`}>Find Us Here</h2>
-          <div className="relative rounded-lg overflow-hidden shadow-2xl">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d36650.69945082895!2d51.368545587480035!3d35.71405034633432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e0185a35e31c3%3A0xc4905716475e7321!2zQ2Fmw6kgQ2jDomk!5e0!3m2!1sbn!2sbd!4v1740050460275!5m2!1sbn!2sbd" width="100%" height="550" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-        </div>
-      </section>
-
       {/* Modern Visit Us Section */}
       <section id="contact" className="py-16 bg-dark relative">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className={`${playfair.className} text-4xl font-bold text-brand`}>Come Visit Us</h2>
+              <h2 className={`${playfair.className} text-4xl font-bold text-brand`}> Contact Us</h2>
               <div className="space-y-4">
-                <div className="flex items-center space-x-3">
+                {/* <div className="flex items-center space-x-3">
                   <MapPin className="h-6 w-6 text-brand" />
                   <p>123 Chai Street, Tea District, NY 10001</p>
-                </div>
-                <div className="flex items-center space-x-3">
+                </div> */}
+                {/* <div className="flex items-center space-x-3">
                   <Clock className="h-6 w-6 text-brand" />
                   <p>Open Daily • 6:00 AM - 11:00 PM</p>
-                </div>
+                </div> */}
                 <div className="flex items-center space-x-3">
                   <Phone className="h-6 w-6 text-brand" />
                   <p>+1 647-621-3213</p>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-6 w-6 text-brand" />
-                  <p>hello@desichaiwaala.com</p>
+                  <p>Desichaiwaala@gmail.com</p>
                 </div>
               </div>
-              <Button className="bg-brand text-dark hover:bg-brand/90">
-                Get Directions
-                <ChevronRight className="ml-2 h-4 w-4" />
-              </Button>
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image src="/offer-chai-to-community.avif" alt="Our Location" fill className="object-cover" />
