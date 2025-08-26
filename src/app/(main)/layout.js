@@ -70,9 +70,10 @@ export default async function RootLayout({ children }) {
           {/* <div>
             <Image src="/payments.png" width={500} height={100} alt="Payment Options" className="mx-auto pb-10" />
           </div> */}
-            <p className="text-gray-500 text-lg mt-2">
-              Website made by <a href="https://paipixel.com/" className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">PaiPixel</a>
-            </p>
+            <p className="text-gray-500 text-lg mt-4">
+  Website developed by <a href="https://paipixel.com/" className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">PaiPixel - Web Development Agency</a>
+</p>
+
           </div>
         </footer>
 
